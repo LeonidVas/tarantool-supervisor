@@ -2,7 +2,7 @@
   <img src="https://avatars2.githubusercontent.com/u/2344919?v=2&s=250" align="right">
 </a>
 
-# Supervisor
+# Tvisor
 
 A service that spawns and manages tarantool instances on a given machine.
 
@@ -39,15 +39,15 @@ To run tests:
 
 Using [go get](https://golang.org/cmd/go/#hdr-Legacy_GOPATH_go_get)(GOPATH):
 ``` bash
-go get -u -d github.com/LeonidVas/tarantool-supervisor
-cd $GOPATH/src/github.com/LeonidVas/tarantool-supervisor
+go get -u -d github.com/LeonidVas/tvisor
+cd $GOPATH/src/github.com/LeonidVas/tvisor
 mage build
 ```
 
 Using Go Modules:
 ``` bash
-git clone https://github.com/LeonidVas/tarantool-supervisor.git
-cd tarantool-supervisor
+git clone https://github.com/LeonidVas/tvisor.git
+cd tvisor
 mage build
 ```
 
@@ -63,7 +63,7 @@ belows for more details.
 
 Run:
 ``` bash
-./tarantool-supervisor --cfg="cfg.json" --addr="127.0.0.1:8080"
+./tvisor --cfg="cfg.json" --addr="127.0.0.1:8080"
 ```
 
 Start an instance:
@@ -117,7 +117,7 @@ To read the documentation use:
 
 For configuration, JSON config is used with the following fields:
 * `instances_dir`(string) - directory that stores executable files with `.lua`
- extension for running Instances. Default: `/etc/tarantool/supervisor/instances`
+ extension for running Instances. Default: `/etc/tarantool/tvisor/instances`
 * `termination_timeout`(number) - time (in seconds) to wait for the Instance to
  terminate correctly. After this timeout expires, the SIGKILL signal will be used
  to stop the instance if the force option is true, else an error will be returned.
@@ -125,15 +125,15 @@ For configuration, JSON config is used with the following fields:
 
 ## Args
 
-Arguments of tarantool-supervisor:
-* `-cfg`(string) - path to Supervisor config. Default: `cfg.json`
+Arguments of tvisor:
+* `-cfg`(string) - path to Tvisor config. Default: `cfg.json`
 * `-addr`(string) - address to start the HTTP server(host:port).
  Default: `127.0.0.1:8080`
 * `-help` - help.
 
 ## API
 
-The HTTP API is used to interact with Supervisor. The request uses JSON
+The HTTP API is used to interact with Tvisor. The request uses JSON
 describing the command sent by the POST method. Response - JSON containing the
 result of the command.
 

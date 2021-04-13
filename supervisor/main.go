@@ -13,13 +13,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/LeonidVas/tarantool-supervisor/supervisor/api/supervisorhttp"
-	"github.com/LeonidVas/tarantool-supervisor/supervisor/core"
+	"github.com/LeonidVas/tvisor/supervisor/api/supervisorhttp"
+	"github.com/LeonidVas/tvisor/supervisor/core"
 )
 
 // args describes the parsed arguments.
 type args struct {
-	//CfgPath - path to Supervisor config.
+	//CfgPath - path to Tvisor config.
 	CfgPath string
 	// Addr - address to start the HTTP server(host:port).
 	Addr string
@@ -29,7 +29,7 @@ type args struct {
 func parseArgs() *args {
 	var args args
 	flag.StringVar(&args.CfgPath, "cfg", "cfg.json",
-		"path to Supervisor config.")
+		"path to Tvisor config.")
 	flag.StringVar(&args.Addr, "addr", "127.0.0.1:8080",
 		"address to start the HTTP server(host:port).")
 	flag.Parse()
@@ -37,7 +37,7 @@ func parseArgs() *args {
 	return &args
 }
 
-// parseCfg parses the Supervisor JSON config.
+// parseCfg parses the Tvisor JSON config.
 func parseCfg(path string) (*core.Cfg, error) {
 	// Check is the file exists.
 	if _, err := os.Stat(path); err != nil {
@@ -53,7 +53,7 @@ func parseCfg(path string) (*core.Cfg, error) {
 
 	// Set defaults.
 	cfg := core.Cfg{
-		InstancesDir: "/etc/tarantool/supervisor/instances",
+		InstancesDir: "/etc/tarantool/tvisor/instances",
 		TermTimeout:  30,
 	}
 

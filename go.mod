@@ -1,4 +1,4 @@
-module github.com/LeonidVas/tarantool-supervisor
+module github.com/LeonidVas/tvisor
 
 go 1.15
 

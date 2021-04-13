@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/LeonidVas/tarantool-supervisor/supervisor/core"
+	"github.com/LeonidVas/tvisor/supervisor/core"
 )
 
 // SupervisorHandler is used to communicate with the Supervisor over HTTP.

@@ -15,10 +15,10 @@ import (
 // can be overwritten by GOEXE
 var goExe = "go"
 
-// can be overwritten by SUPERVISOREXE
-var svExe = "tarantool-supervisor"
+// can be overwritten by TVISOREXE
+var tvExe = "tvisor"
 
-var goPackageName = "github.com/LeonidVas/tarantool-supervisor/supervisor"
+var goPackageName = "github.com/LeonidVas/tvisor/supervisor"
 var packagePath = "./supervisor"
 
 func getBuildEnv() map[string]string {
@@ -59,10 +59,10 @@ func init() {
 		goExe = specifiedGoExe
 	}
 
-	if specifiedSvExe := os.Getenv("SVEXE"); specifiedSvExe != "" {
-		svExe = specifiedSvExe
+	if specifiedTvExe := os.Getenv("TVEXE"); specifiedTvExe != "" {
+		tvExe = specifiedTvExe
 	} else {
-		if svExe, err = filepath.Abs(svExe); err != nil {
+		if tvExe, err = filepath.Abs(tvExe); err != nil {
 			panic(err)
 		}
 	}
@@ -98,7 +98,7 @@ func Test() {
 	mg.SerialDeps(Lint, Unit)
 }
 
-// Build tarantool-supervisor executable
+// Build tvisor executable
 func Build() error {
 	var err error
 
@@ -106,14 +106,14 @@ func Build() error {
 
 	err = sh.RunWith(
 		getBuildEnv(), goExe, "build",
-		"-o", svExe,
+		"-o", tvExe,
 		"-asmflags", asmflags,
 		"-gcflags", gcflags,
 		packagePath,
 	)
 
 	if err != nil {
-		return fmt.Errorf("Failed to build tarantool-supervisor executable: %s", err)
+		return fmt.Errorf("Failed to build tvisor executable: %s", err)
 	}
 
 	return nil
@@ -123,5 +123,5 @@ func Build() error {
 func Clean() {
 	fmt.Println("Cleaning...")
 
-	os.RemoveAll(svExe)
+	os.RemoveAll(tvExe)
 }
