@@ -1,4 +1,4 @@
-module github.com/LeonidVas/tvisor
+module github.com/tarantool/tvisor
 
 go 1.15
 

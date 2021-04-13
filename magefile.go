@@ -18,7 +18,7 @@ var goExe = "go"
 // can be overwritten by TVISOREXE
 var tvExe = "tvisor"
 
-var goPackageName = "github.com/LeonidVas/tvisor/supervisor"
+var goPackageName = "github.com/tarantool/tvisor/supervisor"
 var packagePath = "./supervisor"
 
 func getBuildEnv() map[string]string {

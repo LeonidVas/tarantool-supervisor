@@ -39,14 +39,14 @@ To run tests:
 
 Using [go get](https://golang.org/cmd/go/#hdr-Legacy_GOPATH_go_get)(GOPATH):
 ``` bash
-go get -u -d github.com/LeonidVas/tvisor
-cd $GOPATH/src/github.com/LeonidVas/tvisor
+go get -u -d github.com/tarantool/tvisor
+cd $GOPATH/src/github.com/tarantool/tvisor
 mage build
 ```
 
 Using Go Modules:
 ``` bash
-git clone https://github.com/LeonidVas/tvisor.git
+git clone https://github.com/tarantool/tvisor.git
 cd tvisor
 mage build
 ```

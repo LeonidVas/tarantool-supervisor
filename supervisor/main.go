@@ -13,8 +13,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/LeonidVas/tvisor/supervisor/api/supervisorhttp"
-	"github.com/LeonidVas/tvisor/supervisor/core"
+	"github.com/tarantool/tvisor/supervisor/api/supervisorhttp"
+	"github.com/tarantool/tvisor/supervisor/core"
 )
 
 // args describes the parsed arguments.
